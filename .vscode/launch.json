@@ -1,0 +1,37 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug xv6 kernel (QEMU)",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/src/kernel/kernel",
+      "stopAtEntry": true,
+      "cwd": "${workspaceFolder}/src",
+      "miDebuggerPath": "/opt/riscv/bin/riscv64-unknown-elf-gdb",
+      "miDebuggerServerAddress": "localhost:26000",
+      "launchCompleteCommand": "None",
+      "setupCommands": [
+        {
+          "text": "set confirm off"
+        },
+        {
+          "text": "set architecture riscv:rv64"
+        },
+        {
+          "text": "set disassemble-next-line auto"
+        },
+        {
+          "text": "set riscv use-compressed-breakpoints yes"
+        }
+      ],
+      "preLaunchTask": "xv6: start QEMU (GDB mode)",
+      "postDebugTask": "xv6: stop QEMU",
+      "logging": {
+        "engineLogging": true
+      },
+      "externalConsole": false,
+      "MIMode": "gdb"
+    }
+  ]
+}

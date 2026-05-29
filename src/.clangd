@@ -1,0 +1,13 @@
+CompileFlags:
+  Add:
+    # Resolve includes like "kernel/types.h" from files in src/user and src/kernel.
+    - -I.
+    # Match xv6's freestanding environment closely enough for indexing.
+    - -ffreestanding
+    - -fno-builtin
+    # xv6 uses GCC-accepted GNU designated initializer syntax in a few tables.
+    - -Wno-gnu-designator
+
+Diagnostics:
+  # xv6 often includes umbrella headers intentionally; suppress include-cleaner churn.
+  UnusedIncludes: None

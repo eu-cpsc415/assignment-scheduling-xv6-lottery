@@ -1,0 +1,23 @@
+{
+  "image": "victorbush/devcontainer-qemu-riscv:2026.0",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "clangd.path": "/usr/bin/clangd",
+        "clangd.arguments": [
+          "--clang-tidy=false"
+        ],
+        "clangd.fallbackFlags": [
+          "-I${workspaceFolder}/src",
+          "-ffreestanding",
+          "-fno-builtin",
+          "-Wno-gnu-designator"
+        ]
+      },
+      "extensions": [
+        "llvm-vs-code-extensions.vscode-clangd",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+name: Lottery Scheduler Test
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  test-lottery:
+    runs-on: ubuntu-latest
+    container:
+      image: victorbush/devcontainer-qemu-riscv:2026.0
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Run test-lottery script
+        run: |
+          ./test-lottery.sh

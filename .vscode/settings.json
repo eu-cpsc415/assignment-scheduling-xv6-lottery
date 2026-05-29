@@ -1,0 +1,16 @@
+{
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": false,
+  "C_Cpp.intelliSenseEngine": "disabled",
+  "C_Cpp.errorSquiggles": "disabled",
+  "github.copilot.editor.enableCodeActions": false,
+  "github.copilot.enable": {
+    "*": false
+  },
+  "[c]": {
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+  },
+  "[cpp]": {
+    "editor.defaultFormatter": "llvm-vs-code-extensions.vscode-clangd"
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "xv6: start QEMU (GDB mode)",
+      "type": "shell",
+      "command": "make -f Makefile kernel/kernel fs.img && rm -f .gdbinit && echo QEMU_GDB_READY && qemu-system-riscv64 -machine virt -bios none -kernel kernel/kernel -m 128M -smp 3 -nographic -global virtio-mmio.force-legacy=false -drive file=fs.img,if=none,format=raw,id=x0 -device virtio-blk-device,drive=x0,bus=virtio-mmio-bus.0 -S -gdb tcp::26000",
+      "options": {
+        "cwd": "${workspaceFolder}/src"
+      },
+      "isBackground": true,
+      "problemMatcher": {
+        "pattern": {
+          "regexp": "^(QEMU_GDB_READY)$",
+          "file": 1,
+          "line": 2,
+          "message": 3
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "^QEMU_GDB_READY$",
+          "endsPattern": "^QEMU_GDB_READY$"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "group": "xv6-debug"
+      }
+    },
+    {
+      "label": "xv6: stop QEMU",
+      "type": "shell",
+      "command": "pkill -f qemu-system-riscv64 || true",
+      "presentation": {
+        "reveal": "never",
+        "panel": "dedicated",
+        "group": "xv6-debug"
+      },
+      "problemMatcher": []
+    },
+    {
+      "label": "xv6: build kernel",
+      "type": "shell",
+      "command": "make -f Makefile kernel/kernel",
+      "options": {
+        "cwd": "${workspaceFolder}/src"
+      },
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "shared"
+      },
+      "problemMatcher": "$gcc"
+    }
+  ]
+}
