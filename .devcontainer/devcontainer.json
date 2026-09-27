@@ -1,5 +1,7 @@
 {
   "image": "victorbush/devcontainer-qemu-riscv:2026.0",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  "workspaceFolder": "/workspace",
   "customizations": {
     "vscode": {
       "settings": {
